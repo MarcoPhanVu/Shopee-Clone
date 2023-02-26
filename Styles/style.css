@@ -47,3 +47,10 @@ header {
 .clickable:hover {
     color: rgb(180, 180, 180);
 }
+
+.typical-img {
+    background-color: rgb(224, 252, 187);
+    width: 348px;
+    max-height: 600px;
+    padding: 24px;
+}
