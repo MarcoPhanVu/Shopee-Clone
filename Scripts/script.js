@@ -1,4 +1,4 @@
-allSmallContainer = document.querySelectorAll(".result")
+let allSmallContainer = document.querySelectorAll(".result")
 
 
 
