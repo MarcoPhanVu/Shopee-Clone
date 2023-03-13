@@ -1,7 +1,15 @@
 const mainBody = document.getElementById('main-body');
 
 function shopeeImgUrlExtractor(ele) {
-    let picURL = ele.split(" ")[4].split("&quot")[1].split(";")[1];
+    let picURL = "https://cf.shopee.vn/file/vn-11134103-22090-qewqy9vqlohvad"; // Default Value
+    if (ele.substring(1, 4) == "div") { // Shop's pics
+        picURL = ele.split(" ")[4].split("&quot")[1].split(";")[1];
+        console.log(picURL);
+    }
+
+    if (ele.substring(1, 4) == "img") { //User's pics
+        picURL = ele.split("src=")[1].split("\"")[1];
+    }
 
     const imgContainer = document.createElement("img");
     imgContainer.src = picURL;
@@ -27,6 +35,8 @@ shopeeImgUrlExtractor(`<div class="fus9wz qO2bZw" style="background-image: url(&
 
 shopeeImgUrlExtractor(`<div class="fus9wz qO2bZw" style="background-image: url(&quot;https://cf.shopee.vn/file/vn-11134201-23020-p57ebb7joonv0e&quot;); background-size: contain; background-repeat: no-repeat;"></div>`);
 
+shopeeImgUrlExtractor(`<div class="fus9wz uno8xj" style="background-image: url(&quot;https://cf.shopee.vn/file/b91db3d7ba22ebf955acf4eee87396b5&quot;); background-size: contain; background-repeat: no-repeat;"></div>`);
+
 
 
 const textArea = document.getElementById("elementGetter");
@@ -34,6 +44,8 @@ const textArea = document.getElementById("elementGetter");
 console.log(textArea);
 console.log(textArea.innerHTML);
 
-textArea.addEventListener("keypress", (event) => {
+// Use Input because it updated the target.value immediately
+textArea.addEventListener("input", (event) => {
     console.log(textArea.innerHTML);
+    console.log(event.target.value);
 });

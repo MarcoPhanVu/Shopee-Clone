@@ -4,7 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-    font-family: 'Nunito';
+    font-family: 'Nunito', sans-serif;
+    list-style-type: none;
 }
 
 html {
@@ -30,27 +31,84 @@ html {
 }
 
 body {
-    padding: 36px;
+    /* padding: 36px; */
     /*    background-color: var(--color1);*/
 }
 
 header {
-    background: linear-gradient(180deg, var(--main-color-1), var(--main-color-2));
-    height: 200px;
+    /* background: linear-gradient(180deg, var(--main-color-1), var(--main-color-2)); */
+    background: var(--color2);
+    height: 120px;
     /* linear-gradient(-180deg var(--main-color-1), main--main-color-2)) */
 }
 
-.clickable {
+.clickable-url {
     color: #fff;
 }
 
-.clickable:hover {
-    color: rgb(180, 180, 180);
+.typical-img {
+    background-color: rgb(241, 187, 252);
+    width: 240px;
+    max-height: 600px;
+    /* padding: 24px; */
 }
 
-.typical-img {
-    background-color: rgb(224, 252, 187);
-    width: 348px;
-    max-height: 600px;
-    padding: 24px;
+.header-upper {
+    /* background-color: var(--main-color-2); */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+    min-width: 1000px;
+    width: 80%;
+    margin: auto;
+}
+
+.header-upper-nav {
+    /* background-color: var(--main-color-1); */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* vertical-align: middle; */
+    align-items: center;
+    min-width: 200px;
+    gap: 12px;
+    padding: 4px 12px;
+}
+
+.header-upper-nav :nth-child(n) {
+    position: relative;
+}
+
+.header-upper-nav a,
+.header-upper-nav li :nth-child(n) {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.header-upper-nav .hasSep::after {
+    content: "|";
+    position: absolute;
+    /* background-color: chartreuse; */
+    right: -8px;
+    color: #ffffff80;
+}
+
+.header-upper-nav .clickable-url:hover {
+    color: #ffffffcc;
+    /* font-size: 32px; */
+}
+
+.hasModal {
+    position: relative;
+}
+
+.hasModal .modal {
+    display: none;
+}
+
+.hasModal.active .modal {
+    background-color: coral;
 }
