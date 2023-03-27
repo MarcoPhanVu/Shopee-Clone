@@ -44,20 +44,23 @@ textArea.addEventListener("input", (event) => {
     console.log(event.target.value);
 });
 
-const hasModals = document.querySelectorAll(".has-modal");
-const modals = document.querySelectorAll(".modal");
 
-console.log(hasModals.length);
-console.log(modals.length);
+// IT IS RECOMMENDED THAT WE DON'T DO THIS FOR MODALS
 
-hasModals.forEach( (modalCont, index) => {
-    modalCont.addEventListener("mouseover", () => {
-        // console.log(modalCont.children);
-        console.log("pressed", index);
-        modalCont.classList.toggle("active");
-        modals[index].classList.toggle("active");
-    });
-})
+// const hasModals = document.querySelectorAll(".has-modal");
+// const modals = document.querySelectorAll(".modal");
+
+// console.log(hasModals.length);
+// console.log(modals.length);
+
+// hasModals.forEach( (modalCont, index) => {
+//     modalCont.addEventListener("mouseover", () => {
+//         // console.log(modalCont.children);
+//         console.log("pressed", index);
+//         modalCont.classList.toggle("active");
+//         modals[index].classList.toggle("active");
+//     });
+// })
 
 /*
 - Nâu tầm 1-3h sáng rất quậy, nhất là sau khi ngủ dậy, nên là tầm đó tuyệt đối không được tháo dây(đêm cuối ở nhà Tuán Anh bé lao ra cho 1 bãi trên giường).

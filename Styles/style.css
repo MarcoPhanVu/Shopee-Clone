@@ -36,10 +36,9 @@ body {
 }
 
 header {
-    /* background: linear-gradient(180deg, var(--main-color-1), var(--main-color-2)); */
-    background: var(--color2);
+    background: linear-gradient(180deg, var(--main-color-1), var(--main-color-2));
+    /* background: var(--color2); */
     height: 120px;
-    /* linear-gradient(-180deg var(--main-color-1), main--main-color-2)) */
 }
 
 .clickable-url {
@@ -116,33 +115,57 @@ header {
     font-size: 16px;
 }
 
-/* .header-upper-nav .has-modal {
+.header-upper-nav .has-modal {
     position: relative;
-} */
+    /* background-color: #ffa584; */
+}
 
 .header-upper-nav .has-modal .modal {
-    margin-top: 12px;
-    padding: 8px;
     position: absolute;
+    margin-top: 12px;
+    padding: 4px;
+    position: absolute;
+    display: block;
     display: none;
+    background-color: #fff;
+    right: 0;
 }
 
-.header-upper-nav .has-modal .modal > img {
+.header-upper-nav .has-modal::after {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 16px;
+    transform: translateX(-25%);
+    height: 24px;
+    width: 160%;
+    /* background-color: #9401d3; */
+}
+
+.header-upper-nav .has-modal:hover .modal {
+    display: block;
+}
+
+.header-upper-nav .has-modal .modal.download-modal > img {
     object-fit: contain;
     width: 180px;
-    /* height: 700px; */
 }
 
+
+
+/* RICKROLL VIA QR */
 .header-upper-nav .has-modal .modal.download-modal {
     padding: 0;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
+    left: 0;
+    width: 180px;
 }
+
 
 .header-upper-nav .has-modal .modal.download-modal .platforms {
     display: flex;
     padding: 4px 8px 0px 8px;
-    /* background-color: chocolate; */
-    /* width: 180px; */
     flex-wrap: wrap;
     gap: 8px;
     justify-content: space-between;
@@ -151,19 +174,30 @@ header {
 .header-upper-nav .has-modal .modal.download-modal .platforms > img {
     object-fit: contain;
     height: 16px;
-    /* height: 700px; */
 }
 
-.header-upper-nav .has-modal.active .modal {
-    display: block;
-    background-color: white;
+
+/* LANGUAGE SELECTOR */
+.header-upper-nav .has-modal .language.modal {
+    background-color: #fff;
+    box-shadow: 2px 2px 36px #0000003e;
+    top: 12px;
+    width: 160px;
+    padding: 0;
+    right: -16px;
 }
 
-.header-upper-nav .has-modal.active .modal::after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 15%;
-    top: -5%;
-    background-color: rgba(129, 255, 133, 0.249);
+.header-upper-nav .has-modal .language.modal .language-option {
+    color: #000;
+    /* background-color: #ff92f4; */
+    background-color: rgb(245, 245, 245);
+
+    padding: 12px 8px;
+    cursor: pointer;
+}
+
+.header-upper-nav .has-modal .language.modal .language-option:hover {
+    background-color: #ffffff;
+    /* background-color: rgb(238, 238, 238); */
+    color: var(--main-color-2);
 }
