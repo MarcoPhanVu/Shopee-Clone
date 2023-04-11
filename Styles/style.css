@@ -26,19 +26,17 @@ html {
 
     --main-color-1: #ff92f4;
     --main-color-2: #ffa584;
+
+    --main-color-1-chill: #ff92f436;
+    --main-color-2-chill: #ffa5842e;
+
     /* --main-color-1: #f53d2d;
     --main-color-2: #f63; */
 }
 
 body {
     /* padding: 36px; */
-    /*    background-color: var(--color1);*/
-}
-
-header {
-    background: linear-gradient(180deg, var(--main-color-1), var(--main-color-2));
-    /* background: var(--color2); */
-    height: 120px;
+    /* background-color: var(--color1);*/
 }
 
 .clickable-url {
@@ -52,152 +50,38 @@ header {
     /* padding: 24px; */
 }
 
-.header-upper {
-    /* background-color: var(--main-color-2); */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 30px;
-    min-width: 1000px;
-    width: 80%;
-    margin: auto;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-.header-upper-nav {
-    /* background-color: var(--main-color-1); */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    min-width: 200px;
-    gap: 12px;
-    padding: 4px 12px;
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
-.header-upper-nav :nth-child(n) {
-    position: relative;
-    /* background-color: rgb(255, 166, 134); */
+@keyframes grow {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
-.header-upper-nav a,
-.header-upper-nav li :nth-child(n) {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 400;
-    font-size: 14px;
-}
-
-.header-upper-nav .hasSep::after {
-    content: "|";
-    position: absolute;
-    /* background-color: chartreuse; */
-    right: -8px;
-    color: #ffffff80;
-}
-
-.header-upper-nav .clickable-url:hover {
-    color: #ffffffcc;
-    /* font-size: 32px; */
-}
-
-.header-upper-nav .social-media {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-
-}
-
-.header-upper-nav .social-media a {
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-    height: 32px;
-    font-size: 16px;
-}
-
-.header-upper-nav .has-modal {
-    position: relative;
-    /* background-color: #ffa584; */
-}
-
-.header-upper-nav .has-modal .modal {
-    position: absolute;
-    margin-top: 12px;
-    padding: 4px;
-    position: absolute;
-    display: block;
-    display: none;
-    background-color: #fff;
-    right: 0;
-}
-
-.header-upper-nav .has-modal::after {
-    content: "";
-    position: absolute;
-    display: block;
-    left: 0;
-    top: 16px;
-    transform: translateX(-25%);
-    height: 24px;
-    width: 160%;
-    /* background-color: #9401d3; */
-}
-
-.header-upper-nav .has-modal:hover .modal {
-    display: block;
-}
-
-.header-upper-nav .has-modal .modal.download-modal > img {
-    object-fit: contain;
-    width: 180px;
-}
-
-
-
-/* RICKROLL VIA QR */
-.header-upper-nav .has-modal .modal.download-modal {
-    padding: 0;
-    padding-bottom: 8px;
-    left: 0;
-    width: 180px;
-}
-
-
-.header-upper-nav .has-modal .modal.download-modal .platforms {
-    display: flex;
-    padding: 4px 8px 0px 8px;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: space-between;
-}
-
-.header-upper-nav .has-modal .modal.download-modal .platforms > img {
-    object-fit: contain;
-    height: 16px;
-}
-
-
-/* LANGUAGE SELECTOR */
-.header-upper-nav .has-modal .language.modal {
-    background-color: #fff;
-    box-shadow: 2px 2px 36px #0000003e;
-    top: 12px;
-    width: 160px;
-    padding: 0;
-    right: -16px;
-}
-
-.header-upper-nav .has-modal .language.modal .language-option {
-    color: #000;
-    /* background-color: #ff92f4; */
-    background-color: rgb(245, 245, 245);
-
-    padding: 12px 8px;
-    cursor: pointer;
-}
-
-.header-upper-nav .has-modal .language.modal .language-option:hover {
-    background-color: #ffffff;
-    /* background-color: rgb(238, 238, 238); */
-    color: var(--main-color-2);
+@keyframes shrink {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
 }
