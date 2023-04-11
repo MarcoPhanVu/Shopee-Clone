@@ -27,8 +27,8 @@ html {
     --main-color-1: #ff92f4;
     --main-color-2: #ffa584;
 
-    --main-color-1-chill: #ff92f42f;
-    --main-color-2-chill: #ffa5842f;
+    --main-color-1-chill: #ff92f436;
+    --main-color-2-chill: #ffa5842e;
 
     /* --main-color-1: #f53d2d;
     --main-color-2: #f63; */
@@ -36,13 +36,7 @@ html {
 
 body {
     /* padding: 36px; */
-    /*    background-color: var(--color1);*/
-}
-
-header {
-    background: linear-gradient(180deg, var(--main-color-1), var(--main-color-2));
-    /* background: var(--color2); */
-    height: 120px;
+    /* background-color: var(--color1);*/
 }
 
 .clickable-url {
@@ -54,6 +48,48 @@ header {
     width: 240px;
     max-height: 600px;
     /* padding: 24px; */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes grow {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+
+header {
+    background: linear-gradient(180deg, var(--main-color-1), var(--main-color-2));
+    /* background: var(--color2); */
+    height: 120px;
 }
 
 .header-upper {
@@ -91,8 +127,6 @@ header {
     font-size: 14px;
 }
 
-/* .header-upper-nav .has-modal .notification.modal { */
-
 .header-upper-nav .hasSep::after {
     content: "|";
     position: absolute;
@@ -110,7 +144,6 @@ header {
     display: flex;
     align-items: center;
     gap: 4px;
-
 }
 
 .header-upper-nav .social-media a {
@@ -143,7 +176,7 @@ header {
     left: 0;
     top: 16px;
     transform: translateX(-25%);
-    height: 24px;
+    height: 12px;
     width: 160%;
     /* background-color: #9401d3; */
 }
@@ -152,20 +185,23 @@ header {
     display: block;
 }
 
-.has-modal .modal.download-modal > img {
+.has-modal .download-modal > img {
     /* object-fit: contain; */
     width: 180px;
 }
 
 /* RICKROLL VIA QR */
-.has-modal .modal.download-modal {
+.has-modal .download-modal {
     padding-bottom: 8px;
     left: 0;
     width: 180px;
+    display: none;
+    transform-origin: top left;
+    animation: ease-in-out fadeIn 0.25s, grow 0.25s;
 }
 
 
-.has-modal .modal.download-modal .platforms {
+.has-modal .download-modal .platforms {
     display: flex;
     padding: 4px 8px 0px 8px;
     flex-wrap: wrap;
@@ -173,7 +209,7 @@ header {
     justify-content: space-between;
 }
 
-.has-modal .modal.download-modal .platforms > img {
+.has-modal .download-modal .platforms > img {
     object-fit: contain;
     height: 16px;
 }
@@ -185,6 +221,9 @@ header {
     box-shadow: 2px 2px 36px #0000003e;
     top: 12px;
     width: 136px;
+    display: none;
+    transform-origin: top right;
+    animation: ease-in-out fadeIn 0.25s, grow 0.25s;
 }
 
 .language.modal .language-option {
@@ -209,42 +248,73 @@ header {
     background-color: #fbf7ff;
     border: 1px solid #D3D3D3;
     box-shadow: 2px 2px 36px #0000003e;
+    display: none;
+    transform-origin: calc(100% - 24px) top;
+    animation: ease-in-out fadeIn 0.4s, grow 0.4s;
 }
 
-.notification.modal > :nth-child(n) {
+.notification.modal > h3 {
     color: #000;
-    padding: 8px;
+    padding: 12px 6px;
+    user-select: none;
 }
 
-.notification.modal .noti-ele {
-    height: 100px;
-    background: linear-gradient(180deg, var(--main-color-1-chill), var(--main-color-2-chill));
+.noti-ele {
+    height: 80px;
+    background: linear-gradient(180deg, var(--main-color-1-chill) 80%, var(--main-color-2-chill));
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    /* align-items: center; */
+    /* gap: 8px; */
     cursor: pointer;
 }
 
-.notification.modal .noti-ele.seen {
+.noti-ele.seen {
     background: #fafafa;
 }
 
-.notification.modal .noti-ele:hover {
+.noti-ele:hover {
     background-color: #eaeaea;
 }
 
-.notification.modal .noti-ele > img {
-    height: 80px;
+.noti-ele > img {
     width: 80px;
+    height: 40px;
     object-fit: cover;
+    aspect-ratio: 2;
     object-position: bottom;
+    margin: auto 16px;
 }
 
-.notification.modal .noti-ele .noti-content {
+.noti-ele .noti-content {
+    color: #000;
     /* background-color: #77f680; */
 }
 
-.notification.modal .noti-ele .noti-content .description {
+.noti-ele .noti-content .title {
+    padding: 4px 0px;
+    color: #9c9c9c;
+}
+
+.noti-ele .noti-content .description {
     margin-top: 4px;
     color: #9c9c9c;
+    padding-bottom: 8px;
+}
+
+.notification.modal .more {
+    /* height: 36px; */
+    padding: 12px 0px;
+    width: 100%;
+    color: #707070;
+    background-color: #fbf7ff;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+}
+
+.notification.modal .more:hover {
+    background-color: #fff;
+    color: var(--main-color-2);
 }
