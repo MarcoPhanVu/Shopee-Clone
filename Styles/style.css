@@ -11,7 +11,6 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    /* 1 rem = 10px */
     line-height: 16px;
     /*
     -webkit-box-sizing: border-box;
@@ -84,4 +83,61 @@ body {
     to {
         transform: scale(0);
     }
+}
+
+.modal {
+    /* background-color: #000; */
+    position: fixed;
+    z-index: 24;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #0000001f;
+}
+
+.modal-content {
+    position: fixed;
+    display: flex;
+    min-width: 480px;
+    width: 200px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 24;
+    background-color: #fff;
+}
+
+.modal-content .form {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.modal-content .form header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px;
+    height: 60px;
+}
+
+.modal-content .form header .title{
+    font-size: 20px;
+    background-color: chocolate;
+    line-height: 20px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #a1ff84;
+}
+
+
+.auth-form-input {
+    padding: 12px;
+    background-color: #ed84ff;
 }
