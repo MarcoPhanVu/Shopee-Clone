@@ -16,7 +16,7 @@
         <!-- https://themify.me/themify-icons -->
 
     <!-- FONT AWESOME -->
-        <link rel="stylesheet" href="./Assets/icons/fontawesome-free-6.3.0-web/css/all.css">
+        <!-- <link rel="stylesheet" href="./Assets/icons/fontawesome-free-6.3.0-web/css/all.css"> -->
         <!-- https://fontawesome.com/ -->
 
     <!-- CSS Stylesheet -->
@@ -28,28 +28,59 @@
     <div class="page">
         <div class="auth modal">
             <div action="" class="modal-content">
-                <div class="form form-singin">
+                <div class="auth-form register-form">
                     <header>
                         <p class="title">Đăng ký</p>
-                        <button class="change-form" button>Đăng nhập</button>
+                        <button onclick="openForm(logForm)" class="change-form">Đăng nhập</button>
                     </header>
-                    <div class="auth-form">
-                        <input type="text" class="auth-form-input" placeholder="Email">
-                        <input type="text" class="auth-form-input" placeholder="Password">
-                        <input type="text" class="auth-form-input" placeholder="Confirm Password">
+                    <div class="form-register">
+                        <input type="email" class="form-register-input" placeholder="Email">
+                        <input type="password" class="form-register-input" placeholder="Password">
+                        <input type="password" class="form-register-input" placeholder="Confirm Password">
                     </div>
                     <p class="policy">Bằng việc đăng kí, bạn đã đồng ý với Sọp Pe về 
-                        <a class="external-link">Điều khoản dịch vụ</a> & 
-                        <a class="external-link">Chính sách bảo mật</a>
+                        <a href="#" class="external-link">Điều khoản dịch vụ</a> & 
+                        <a href="#" class="external-link">Chính sách bảo mật</a>
                     </p>
                     <footer>
-                        <div class="register-via-other-platforms">
-                            <img src="" alt="">
-                            <p class="platform-name"></p>
+                        <h4 class="suggest-linking">Hoặc đăng ký qua</h4>
+                        <div class="connect-via-other-platforms">
+                            <a href="#" target="_blank" class="platform-name" style="background-color: rgb(50, 50, 150);"> 
+                                <i class="fa-brands fa-facebook"></i>
+                                Kết nối với Facebook
+                            </a>
+                            <a href="#" target="_blank" class="platform-name" style="background-color: rgb(230, 80, 80);"> 
+                                <i class="fa-brands fa-google"></i>
+                                Kết nối với Google
+                            </a>
                         </div>
-                        <div class="register-via-other-platforms">
-                            <img src="" alt="">
-                            <p class="platform-name"></p>
+                    </footer>
+                </div>
+
+                <div class="auth-form login-form hidden">
+                    <header>
+                        <p class="title">Đăng nhập</p>
+                        <button onclick="openForm(regForm)" class="change-form">Đăng ký</button>
+                    </header>
+                    <div class="form-login">
+                        <input type="email" class="form-login-input" placeholder="Email">
+                        <input type="password" class="form-login-input" placeholder="Password">
+                    </div>
+                    <footer>
+                        <h4 class="suggest-linking">Hoặc đăng nhập bằng</h4>
+                        <div class="connect-via-other-platforms">
+                            <a href="#" target="_blank" class="platform-name" style="background-color: rgb(50, 50, 150);"> 
+                                <i class="fa-brands fa-facebook"></i>
+                                Facebook
+                            </a>
+                            <a href="#" target="_blank" class="platform-name" style="background-color: rgb(230, 80, 80);"> 
+                                <i class="fa-brands fa-google"></i>
+                                Google
+                            </a>
+                            <a href="#" target="_blank" class="platform-name" style="background-color: rgb(110, 192, 150);"> 
+                                <i class="fa-solid fa-comment-sms"></i>
+                                SMS
+                            </a>
                         </div>
                     </footer>
                 </div>
@@ -146,10 +177,10 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" class="clickable-url hasSep">Đăng ký</a>
+                            <a href="#" class="clickable-url hasSep" onclick="openForm(regForm)">Đăng ký</a>
                         </li>
                         <li>
-                            <a href="#" class="clickable-url">Đăng nhập</a>
+                            <a href="#" class="clickable-url" onclick="openForm(logForm)">Đăng nhập</a>
                         </li>
                 </ul>
 
@@ -165,6 +196,11 @@
 
         </footer>
     </div>
+
+    <!-- Font Awesome Kit -->
+    <!-- https://fontawesome.com/ -->
+    <script src="https://kit.fontawesome.com/11e0effb53.js" crossorigin="anonymous"></script>
+
     <!-- JS Script(s) -->
     <script src="./Scripts/script.js"></script>
     <!-- <script src="./Scripts/external.js"></script> -->

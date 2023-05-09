@@ -3,7 +3,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
+    box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
     list-style-type: none;
 }
@@ -36,6 +36,10 @@ html {
 body {
     /* padding: 36px; */
     /* background-color: var(--color1);*/
+}
+
+.hidden {
+    display: none !important;
 }
 
 .clickable-url {
@@ -109,35 +113,105 @@ body {
     background-color: #fff;
 }
 
-.modal-content .form {
+.modal-content .auth-form {
     display: flex;
     flex-direction: column;
     padding: 24px;
 }
 
-.modal-content .form header {
+.modal-content .auth-form header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 16px;
+    padding: 8px 16px;
     height: 60px;
+    background: #fff;
+    margin-bottom: 32px;
 }
 
-.modal-content .form header .title{
+.modal-content .auth-form header .title{
+    font-size: 24px;
+    line-height: 100%;
+    padding-top: 12px;
+    margin-left: -12px;
+    font-weight: 600;
+}
+
+.modal-content .auth-form header .change-form {
     font-size: 20px;
-    background-color: chocolate;
-    line-height: 20px;
+    background: none;
+    color: var(--main-color-2);
+    border: none;
+    cursor: pointer;
+
 }
 
-.auth-form {
+.modal-content .auth-form header .change-form:hover {
+    color: #f8c7b6;
+}
+
+.auth-form .form-register,
+.auth-form .form-login {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    background-color: #a1ff84;
+    /* background-color: #a1ff84; */
+    margin-bottom: 32px;
 }
 
+.auth-form .form-register-input,
+.auth-form .form-login-input {
+    padding: 8px;
+    /* background-color: #ed84ff; */
+}
 
-.auth-form-input {
-    padding: 12px;
-    background-color: #ed84ff;
+.auth-form .policy {
+    text-align: center;
+}
+
+.auth-form .policy a {
+    text-decoration: none;
+    color: var(--main-color-2);
+}
+
+.auth-form .policy a:hover {
+    color: #f8c7b6;
+}
+
+.auth-form footer {
+    /* background-color: #7f7f7f; */
+    height: 100px;
+    margin: -24px;
+    margin-top: auto;
+}
+
+.auth-form footer .suggest-linking {
+    text-align: center;
+    /* background-color: salmon; */
+    margin-bottom: 12px;
+}
+
+.auth-form footer .connect-via-other-platforms {
+    display: flex;
+    padding: 16px;
+    gap: 12px;
+    background-color: #f1f1f1;
+}
+
+.auth-form footer .connect-via-other-platforms a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    border-radius: 4px;
+}
+
+.auth-form footer .connect-via-other-platforms a i {
+    font-size: 24px;
+    line-height: 40px;
+    margin: 0 12px;
 }
