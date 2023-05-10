@@ -56,7 +56,7 @@ const mainModal = document.querySelector('.modal-content');
 
 modalOverlay.addEventListener("click", (event) => {
     if (event.target == modalOverlay && event.target.contains(mainModal)) { // to make sure that we are clicking on the overlay instead of the modal
-        modalOverlay.classList.toggle('hidden');
+        closeModal();
     }
 });
 
@@ -67,6 +67,7 @@ const logForm = document.querySelector('.login-form');
 // console.log("regForm children: ", regForm.children[0]);
 
 function openForm(form) {
+    mainModal.classList.remove('hidden');
     modalOverlay.classList.remove('hidden');
     form.classList.remove('hidden');
 
@@ -76,4 +77,10 @@ function openForm(form) {
     else if (form == logForm) {
         regForm.classList.add('hidden');
     }
+}
+
+function closeModal() {
+    logForm.classList.add('hidden');
+    regForm.classList.add('hidden');
+    modalOverlay.classList.add('hidden');
 }

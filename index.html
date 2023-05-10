@@ -26,22 +26,28 @@
 
 <body>
     <div class="page">
-        <div class="auth modal">
-            <div action="" class="modal-content">
-                <div class="auth-form register-form">
+        <div class="auth modal hidden">
+            <div action="" class="modal-content hidden">
+                <div class="auth-form register-form hidden">
                     <header>
                         <p class="title">Đăng ký</p>
                         <button onclick="openForm(logForm)" class="change-form">Đăng nhập</button>
                     </header>
-                    <div class="form-register">
-                        <input type="email" class="form-register-input" placeholder="Email">
-                        <input type="password" class="form-register-input" placeholder="Password">
-                        <input type="password" class="form-register-input" placeholder="Confirm Password">
+                    <div class="register-input-container">
+                        <input type="email" class="register-form-input" placeholder="Email">
+                        <input type="password" class="register-form-input" placeholder="Password">
+                        <input type="password" class="register-form-input" placeholder="Confirm Password">
                     </div>
                     <p class="policy">Bằng việc đăng kí, bạn đã đồng ý với Sọp Pe về 
                         <a href="#" class="external-link">Điều khoản dịch vụ</a> & 
                         <a href="#" class="external-link">Chính sách bảo mật</a>
                     </p>
+
+
+                    <div class="action">
+                        <button onclick="console.log('User pressed Register')" class="action-register">Đăng ký</button>
+                        <button onclick="closeModal()" class="return">Trở lại</button>
+                    </div>
                     <footer>
                         <h4 class="suggest-linking">Hoặc đăng ký qua</h4>
                         <div class="connect-via-other-platforms">
@@ -62,9 +68,15 @@
                         <p class="title">Đăng nhập</p>
                         <button onclick="openForm(regForm)" class="change-form">Đăng ký</button>
                     </header>
-                    <div class="form-login">
-                        <input type="email" class="form-login-input" placeholder="Email">
-                        <input type="password" class="form-login-input" placeholder="Password">
+                    <div class="login-input-container">
+                        <input type="email" class="login-form-input" placeholder="Email">
+                        <input type="password" class="login-form-input" placeholder="Password">
+                    </div>
+
+                    
+                    <div class="action">
+                        <button onclick="console.log('User pressed Login')" class="action-login">Đăng nhập</button>
+                        <button onclick="closeModal()" class="return">Trở lại</button>
                     </div>
                     <footer>
                         <h4 class="suggest-linking">Hoặc đăng nhập bằng</h4>
