@@ -68,33 +68,50 @@ header {
 
 .has-modal {
     position: relative;
-    /* background-color: #ffa584; */
-}
-
-.has-modal .modal {
-    position: absolute;
-    margin-top: 12px;
-    position: absolute;
-    display: block;
-    /* display: none; */
-    background-color: #fff;
-    right: 0;
+    /* background-color: #174550; */
 }
 
 .has-modal::after {
     content: "";
     position: absolute;
-    display: block;
+    display: none;
     left: 0;
-    top: 16px;
+    top: 12px;
     transform: translateX(-25%);
-    height: 12px;
+    height: 16px;
     width: 160%;
     /* background-color: #9401d3; */
 }
 
-.has-modal:hover .modal {
+.has-modal:hover::after {
     display: block;
+}
+
+.has-modal .modal {
+    position: absolute;
+    top: 28px;
+    right: 0;
+    display: none;
+    /* display: block; */
+    background-color: #fff;
+    box-shadow: 2px 2px 36px #0000003e;
+}
+
+.has-modal:hover .modal {
+    /* position: relative; */
+    display: block;
+}
+
+.has-modal .modal::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    top: -12px;
+    right: 4px;
+    border-bottom: 12px solid #fbf7ff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
 }
 
 .has-modal .download-modal > img {
@@ -107,11 +124,14 @@ header {
     padding-bottom: 8px;
     left: 0;
     width: 180px;
-    display: none;
     transform-origin: top left;
     animation: ease-in-out fadeIn 0.25s, grow 0.25s;
 }
 
+.has-modal .download-modal::after {
+    left: 4px;
+    border-bottom: 16px solid #fff;
+}
 
 .has-modal .download-modal .platforms {
     display: flex;
@@ -130,10 +150,7 @@ header {
 /* LANGUAGE SELECTOR */
 .language.modal {
     background-color: #fff;
-    box-shadow: 2px 2px 36px #0000003e;
-    top: 12px;
-    width: 136px;
-    display: none;
+    width: 160px;
     transform-origin: top right;
     animation: ease-in-out fadeIn 0.25s, grow 0.25s;
 }
@@ -142,7 +159,6 @@ header {
     color: #000;
     /* background-color: #ff92f4; */
     background-color: rgb(245, 245, 245);
-
     padding: 12px 8px;
     cursor: pointer;
 }
@@ -159,8 +175,6 @@ header {
     min-width: 360px;
     background-color: #fbf7ff;
     border: 1px solid #D3D3D3;
-    box-shadow: 2px 2px 36px #0000003e;
-    display: none;
     transform-origin: calc(100% - 24px) top;
     animation: ease-in-out fadeIn 0.4s, grow 0.4s;
 }
