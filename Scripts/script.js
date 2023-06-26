@@ -12,7 +12,9 @@ notiList.forEach((noti) => {
 function shopeeImgUrlExtractor(ele) {
     let picURL = "https://cf.shopee.vn/file/vn-11134103-22090-qewqy9vqlohvad"; // Default Value
     if (ele.substring(1, 4) == "div") { // Shop's pics
-        picURL = ele.split(" ")[4].split("&quot")[1].split(";")[1];
+        // picURL = ele.split(" ")[4].split("&quot")[1].split(";")[1];
+        picURL = ele.split("&quot")[1].split(";")[1];
+        // console.log(picURL);
         // console.log(picURL);
     }
 
