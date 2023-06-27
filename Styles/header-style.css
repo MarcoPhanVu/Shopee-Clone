@@ -9,8 +9,7 @@ header {
 }
 
 
-.header {
-    min-width: 1000px;
+.page-header {
     width: 80%;
     margin: auto;
     display: flex;
@@ -20,8 +19,9 @@ header {
 
 
 /* HEADER UPPER */
-.header-upper.header {
+.header-upper.page-header {
     height: 30px;
+    /* background-color: blue; */
 }
 
 .header-upper-nav {
@@ -257,7 +257,7 @@ header {
 
 
 /* HEADER LOWER */
-.header-lower.header {
+.header-lower.page-header {
     display: flex;
     gap: 24px;
     /* background-color: #d9d17a; */
