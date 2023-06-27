@@ -101,7 +101,7 @@ body {
     width: 100%;
 }
 
-.modal-content .auth-form header {
+/* .modal-content .auth-form header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -129,6 +129,37 @@ body {
 }
 
 .modal-content .auth-form header .change-form:hover {
+    color: #f8c7b6;
+} */
+
+.modal-content .auth-form .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px 16px;
+    height: 60px;
+    background: #fff;
+    margin-bottom: 32px;
+}
+
+.modal-content .auth-form .header .title{
+    font-size: 24px;
+    line-height: 100%;
+    padding-top: 12px;
+    margin-left: -12px;
+    font-weight: 600;
+}
+
+.modal-content .auth-form .header .change-form {
+    font-size: 20px;
+    background: none;
+    color: var(--main-color-2);
+    border: none;
+    cursor: pointer;
+
+}
+
+.modal-content .auth-form .header .change-form:hover {
     color: #f8c7b6;
 }
 
