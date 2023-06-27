@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url("./animations.css");
+@import url("./products.css");
 
 * {
     margin: 0;
@@ -41,8 +42,9 @@ html {
 }
 
 body {
-    /* padding: 36px; */
-    /* background-color: var(--color1);*/
+    padding: 36px;
+    padding-top: 160px;
+    background-color: var(--color1);
 }
 
 .hidden {
@@ -118,7 +120,7 @@ body {
 }
 
 .modal-content .auth-form header .change-form {
-    font-size: 20px;
+    font-size: 20pxaaaâ;
     background: none;
     color: var(--main-color-2);
     border: none;
@@ -233,4 +235,13 @@ body {
     font-size: 24px;
     line-height: 40px;
     margin: 0 12px;
+}
+
+
+
+
+
+#main-body {
+    display: flex;
+    flex-direction: column;
 }

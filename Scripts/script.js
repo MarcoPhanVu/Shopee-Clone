@@ -1,13 +1,78 @@
 const mainBody = document.getElementById('main-body');
+const notiList = document.querySelectorAll('.noti-ele');
+const regionList = document.getElementById('region-list');
+const regionSelectContainer = document.getElementById('region-select-container');
 
-const notiList = document.querySelectorAll(".noti-ele");
 
+regionSelectContainer.addEventListener("click", function() {
+    regionList.classList.toggle("active");
+    console.log(regionSelectContainer.classList);
+})
+
+regionSelectContainer.addEventListener("blur", function() {
+    regionList.classList.remove("active");
+})
+
+// READ NOTI
 notiList.forEach((noti) => {
     noti.addEventListener("click", (e) => {
         noti.classList.add("seen");
     })
 });
 
+
+// MODAL LOGIC
+const modalOverlay = document.querySelector('.modal');
+const mainModal = document.querySelector('.modal-content');
+
+modalOverlay.addEventListener("click", (event) => {
+    if (event.target == modalOverlay && event.target.contains(mainModal)) { // to make sure that we are clicking on the overlay instead of the modal
+        closeModal();
+    }
+});
+
+const regForm = document.querySelector(".register-form");
+const logForm = document.querySelector('.login-form');
+
+// console.log("regForm childNode: ", regForm.childNodes);
+// console.log("regForm children: ", regForm.children[0]);
+
+function openForm(form) {
+    mainModal.classList.remove('hidden');
+    modalOverlay.classList.remove('hidden');
+    form.classList.remove('hidden');
+
+    if (form == regForm) {
+        logForm.classList.add('hidden');
+    }
+    else if (form == logForm) {
+        regForm.classList.add('hidden');
+    }
+}
+
+function closeModal() {
+    logForm.classList.add('hidden');
+    regForm.classList.add('hidden');
+    modalOverlay.classList.add('hidden');
+}
+
+
+const focusDiv = document.querySelector(".focus-div");
+const focusInputContainer = document.querySelector(".focus-input");
+
+// Focus and related events needs tab index to work
+// focusDiv.addEventListener("focusin", function() {
+//     console.log(focusDiv.classList);
+//     focusDiv.classList.toggle("active");
+// });
+
+
+const textArea = document.getElementById("elementGetter");
+
+// Use Input because it updated the target.value immediately
+// textArea.addEventListener("input", (event) => {
+//     console.log(event.target.value);
+// });
 
 function shopeeImgUrlExtractor(ele) {
     let picURL = "https://cf.shopee.vn/file/vn-11134103-22090-qewqy9vqlohvad"; // Default Value
@@ -43,46 +108,3 @@ function shopeeImgUrlExtractor(ele) {
     shopeeImgUrlExtractor(`<div class="fus9wz qO2bZw" style="background-image: url(&quot;https://cf.shopee.vn/file/vn-11134201-23020-p57ebb7joonv0e&quot;); background-size: contain; background-repeat: no-repeat;"></div>`);
 
     shopeeImgUrlExtractor(`<div class="fus9wz uno8xj" style="background-image: url(&quot;https://cf.shopee.vn/file/b91db3d7ba22ebf955acf4eee87396b5&quot;); background-size: contain; background-repeat: no-repeat;"></div>`);
-
-
-const textArea = document.getElementById("elementGetter");
-
-// Use Input because it updated the target.value immediately
-textArea.addEventListener("input", (event) => {
-    console.log(event.target.value);
-});
-
-
-const modalOverlay = document.querySelector('.modal');
-const mainModal = document.querySelector('.modal-content');
-
-modalOverlay.addEventListener("click", (event) => {
-    if (event.target == modalOverlay && event.target.contains(mainModal)) { // to make sure that we are clicking on the overlay instead of the modal
-        closeModal();
-    }
-});
-
-const regForm = document.querySelector(".register-form");
-const logForm = document.querySelector('.login-form');
-
-// console.log("regForm childNode: ", regForm.childNodes);
-// console.log("regForm children: ", regForm.children[0]);
-
-function openForm(form) {
-    mainModal.classList.remove('hidden');
-    modalOverlay.classList.remove('hidden');
-    form.classList.remove('hidden');
-
-    if (form == regForm) {
-        logForm.classList.add('hidden');
-    }
-    else if (form == logForm) {
-        regForm.classList.add('hidden');
-    }
-}
-
-function closeModal() {
-    logForm.classList.add('hidden');
-    regForm.classList.add('hidden');
-    modalOverlay.classList.add('hidden');
-}

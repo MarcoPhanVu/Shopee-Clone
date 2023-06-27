@@ -2,6 +2,10 @@ header {
     background: linear-gradient(180deg, var(--main-color-1), var(--main-color-2));
     /* background: var(--color2); */
     /* height: 120px; */
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
 }
 
 
@@ -298,6 +302,61 @@ header {
     flex: auto;
 }
 
+.search-bar .region-select-container {
+    display: flex;
+	align-items: center;
+	cursor: pointer;
+	border-radius: 4px;
+	margin: 4px 0px;
+}
+
+.search-bar .region-select-container:hover,
+.region-select-container:hover .region-selector > #choosen-region {
+	background-color: #fafafa;
+}
+
+
+.region-select-container .region-selector {
+    outline: none;
+    border: none;
+    cursor: pointer;
+	border-left: 1px solid #cdcdcd;
+	position: relative;
+}
+
+.region-select-container > .region-selector > .region-list {
+	position: absolute;
+	top: 32px;
+	width: calc(100% + 36px);
+	display: none;
+}
+
+.region-select-container > .region-selector > .region-list.active {
+	display: block;
+}
+
+.region-selector > .region-list > .region {
+	background-color: #fff;
+	cursor: pointer;
+    padding: 12px 8px;
+	padding-right: 0px;
+}
+
+.region-selector > #choosen-region {
+	/* background-color: teal; */
+	padding: 6px;
+	padding-left: 12px;
+}
+
+.region-selector > .region-list > .region:hover {
+    background-color: rgb(229, 217, 111);
+}
+
+.region-select-container > i {
+	margin: 0px 8px;
+}
+
+
 .search-bar > .search-btn {
     background: linear-gradient(90deg, var(--main-color-1), var(--main-color-2));
     margin: 3px;
@@ -325,7 +384,10 @@ header {
 .search-section .suggestions > p {
     cursor: pointer;
     color: #fff;
-    text-decoration: underline;
+}
+
+.search-section .suggestions > p:hover {
+    color: #ffffffbe;
 }
 
 .cart {
@@ -341,4 +403,25 @@ header {
     font-size: 36px;
     color: white;
     cursor: pointer;
+}
+
+
+#main-body > .focus-div {
+    background-color: darkblue;
+}
+
+#main-body > .focus-div.active {
+    background-color: rgb(101, 101, 209);
+}
+
+#main-body > .focus-div > .focus-div-p {
+    
+}
+
+#main-body > .focus-input.active {
+    background-color: pink;
+}
+
+#main-body > .focus-input > .focus-input-input {
+    
 }
