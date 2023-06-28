@@ -22,6 +22,7 @@ header {
 .header-upper.page-header {
     height: 30px;
     /* background-color: blue; */
+    z-index: 15;
 }
 
 .header-upper-nav {
@@ -77,6 +78,7 @@ header {
 .has-mini-modal {
     position: relative;
     /* background-color: #174550; */
+    z-index: 50;
 }
 
 .has-mini-modal::after {
@@ -299,8 +301,9 @@ header {
     flex: auto;
     display: flex;
     flex-direction: column;
-    position: relative;
+    /* position: relative; */
     border-radius: 4px;
+    height: 48px;
 }
 
 .search-wrapper > .search-bar > input {
@@ -311,12 +314,13 @@ header {
 }
 
 .search-wrapper .search-bar > .search-history {
-    position: absolute;
+    margin-top: 8px;
     background-color: rgb(253, 253, 253);
-    top: calc(100% + 4px);
     border-radius: 4px;
     width: 96%;
-    /* display: none; */
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
 }
 
 .search-wrapper .search-bar > .search-history.active {
@@ -332,15 +336,13 @@ header {
     font-weight: 600;
 }
 
-.search-wrapper .search-bar > .search-history > .search-history-item,
-.region-selector > .region-list > .region {
+.search-wrapper .search-bar > .search-history > .search-history-item {
     cursor: pointer;
     padding: 12px;
 }
-
-.search-wrapper .search-bar > .search-history > .search-history-item:hover,
-.region-selector > .region-list > .region:hover {
+.search-wrapper .search-bar > .search-history > .search-history-item:hover {
     background-color: rgb(236, 236, 236);
+
 }
 
 .search-wrapper .region-select-container {
@@ -363,6 +365,7 @@ header {
     cursor: pointer;
 	border-left: 1px solid #cdcdcd;
 	position: relative;
+    min-width: 80px;
 }
 
 .region-select-container > .region-selector > .region-list {
@@ -376,6 +379,23 @@ header {
 .region-select-container > .region-selector > .region-list.active {
 	display: block;
 }
+
+
+.region-selector > .region-list > .region {
+    cursor: pointer;
+    padding: 12px;
+    /* line-height: 1.15; */
+}
+
+.region-selector > .region-list > .region > i {
+    margin-left: 12px;
+    color: var(--main-color-2);
+}
+
+.region-selector > .region-list > .region:hover {
+    background-color: rgb(236, 236, 236);
+}
+
 
 .region-selector > #choosen-region {
 	/* background-color: teal; */
