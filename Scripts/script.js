@@ -44,7 +44,25 @@ function closeModal() {
     modalOverlay.classList.add('hidden');
 }
 
+const searchInput = document.getElementById('search');
+const searchHistoryContainer = document.querySelector(".search-history");
+const searchHistoryItems = document.querySelectorAll(".search-history-item");
 
+searchInput.addEventListener("focus", () => {
+    searchHistoryContainer.classList.add("active");
+});
+
+searchHistoryItems.forEach(item => {
+    console.log(item);
+    item.addEventListener("click", () => {
+        searchInput.value = item.innerHTML;
+    });
+});
+
+// If display = none => cant assign innerHTML
+searchInput.addEventListener("focusout", () => {
+    searchHistoryContainer.classList.remove("active");
+});
 
 // REGION SELECTOR
 let regionsList = {
@@ -54,7 +72,8 @@ let regionsList = {
     SEA: "Đông Nam Á",
     EU: "Châu Âu",
     US: "Mỹ"
-}
+};
+
 const region = document.querySelectorAll('.region');
 const choosenRegionContainer = document.getElementById('choosen-region');
 const regionSelectContainer = document.getElementById('region-select-container');
@@ -62,23 +81,20 @@ const regionListDisplay = document.getElementById('region-list');
 
 regionSelectContainer.addEventListener("click", () => {
     regionListDisplay.classList.toggle("active");
-})
+});
 
-regionSelectContainer.addEventListener("blur", () => {
-    regionListDisplay.classList.remove("active");
-})
+// regionSelectContainer.addEventListener("blur", () => {
+//     regionListDisplay.classList.remove("active");
+// });
 
 region.forEach(re => {
-    // console.log(re.dataset.value);
-    // if (re.dataset.value == choosenRegionContainer.dataset.value) {
-    //     re.classList.add("hidden");
-    // }
+    if (re.dataset.value == choosenRegionContainer.dataset.value) {
+        re.classList.add("hidden");
+    }
 
     re.addEventListener("click", () => {
         choosenRegionContainer.dataset.value = re.dataset.value;
         choosenRegionContainer.innerHTML = regionsList[choosenRegionContainer.dataset.value];
-        console.log(regionsList[choosenRegionContainer.dataset.value]);
-        // console.log("Khi là mèo");
 
         region.forEach(re => re.classList.remove("hidden"));
         if (re.dataset.value == choosenRegionContainer.dataset.value) {
