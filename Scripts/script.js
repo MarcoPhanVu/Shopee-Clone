@@ -1,17 +1,5 @@
 const mainBody = document.getElementById('main-body');
 const notiList = document.querySelectorAll('.noti-ele');
-const regionList = document.getElementById('region-list');
-const regionSelectContainer = document.getElementById('region-select-container');
-
-
-regionSelectContainer.addEventListener("click", function() {
-    regionList.classList.toggle("active");
-    console.log(regionSelectContainer.classList);
-})
-
-regionSelectContainer.addEventListener("blur", function() {
-    regionList.classList.remove("active");
-})
 
 // READ NOTI
 notiList.forEach((noti) => {
@@ -57,14 +45,51 @@ function closeModal() {
 }
 
 
-const focusDiv = document.querySelector(".focus-div");
-const focusInputContainer = document.querySelector(".focus-input");
 
-// Focus and related events needs tab index to work
-// focusDiv.addEventListener("focusin", function() {
-//     console.log(focusDiv.classList);
-//     focusDiv.classList.toggle("active");
-// });
+// REGION SELECTOR
+let regionsList = {
+    Vietnam: "Trong nước",
+    China: "Trung Quốc",
+    Thailand: "Thái Lan",
+    SEA: "Đông Nam Á",
+    EU: "Châu Âu",
+    US: "Mỹ"
+}
+const region = document.querySelectorAll('.region');
+const choosenRegionContainer = document.getElementById('choosen-region');
+const regionSelectContainer = document.getElementById('region-select-container');
+const regionListDisplay = document.getElementById('region-list');
+
+regionSelectContainer.addEventListener("click", () => {
+    regionListDisplay.classList.toggle("active");
+})
+
+regionSelectContainer.addEventListener("blur", () => {
+    regionListDisplay.classList.remove("active");
+})
+
+region.forEach(re => {
+    // console.log(re.dataset.value);
+    // if (re.dataset.value == choosenRegionContainer.dataset.value) {
+    //     re.classList.add("hidden");
+    // }
+
+    re.addEventListener("click", () => {
+        choosenRegionContainer.dataset.value = re.dataset.value;
+        choosenRegionContainer.innerHTML = regionsList[choosenRegionContainer.dataset.value];
+        console.log(regionsList[choosenRegionContainer.dataset.value]);
+        // console.log("Khi là mèo");
+
+        region.forEach(re => re.classList.remove("hidden"));
+        if (re.dataset.value == choosenRegionContainer.dataset.value) {
+            re.classList.add("hidden");
+        }
+    });
+});
+
+
+
+
 
 
 const textArea = document.getElementById("elementGetter");
