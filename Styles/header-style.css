@@ -22,6 +22,7 @@ header {
 .header-upper.page-header {
     height: 30px;
     /* background-color: blue; */
+    z-index: 15;
 }
 
 .header-upper-nav {
@@ -77,6 +78,7 @@ header {
 .has-mini-modal {
     position: relative;
     /* background-color: #174550; */
+    z-index: 50;
 }
 
 .has-mini-modal::after {
@@ -285,7 +287,7 @@ header {
 
 }
 
-.search-section .search-bar {
+.search-section .search-wrapper {
     margin-top: 12px;
     display: flex;
     flex-direction: row;
@@ -294,15 +296,56 @@ header {
     border-radius: 2px;
 }
 
-.search-bar > input {
+.search-wrapper .search-bar {
+    background-color: rgb(255, 255, 255);
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    border-radius: 4px;
+    height: 48px;
+}
+
+.search-wrapper > .search-bar > input {
     height: 48px;
     padding: 12px;
     border: none;
-    border-radius: 2px;
-    flex: auto;
+    background-color: #00000000;
 }
 
-.search-bar .region-select-container {
+.search-wrapper .search-bar > .search-history {
+    margin-top: 8px;
+    background-color: rgb(253, 253, 253);
+    border-radius: 4px;
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+}
+
+.search-wrapper .search-bar > .search-history.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-wrapper .search-bar > .search-history > .search-history-title {
+    padding: 12px;
+    color: rgb(200, 200, 200);
+    display: flex;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.search-wrapper .search-bar > .search-history > .search-history-item {
+    cursor: pointer;
+    padding: 12px;
+}
+.search-wrapper .search-bar > .search-history > .search-history-item:hover {
+    background-color: rgb(236, 236, 236);
+
+}
+
+.search-wrapper .region-select-container {
     display: flex;
 	align-items: center;
 	cursor: pointer;
@@ -310,7 +353,7 @@ header {
 	margin: 4px 0px;
 }
 
-.search-bar .region-select-container:hover,
+.search-wrapper .region-select-container:hover,
 .region-select-container:hover .region-selector > #choosen-region {
 	background-color: #fafafa;
 }
@@ -322,6 +365,7 @@ header {
     cursor: pointer;
 	border-left: 1px solid #cdcdcd;
 	position: relative;
+    min-width: 80px;
 }
 
 .region-select-container > .region-selector > .region-list {
@@ -329,18 +373,29 @@ header {
 	top: 32px;
 	width: calc(100% + 36px);
 	display: none;
+    background-color: rgb(253, 253, 253);
 }
 
 .region-select-container > .region-selector > .region-list.active {
 	display: block;
 }
 
+
 .region-selector > .region-list > .region {
-	background-color: #fff;
-	cursor: pointer;
-    padding: 12px 8px;
-	padding-right: 0px;
+    cursor: pointer;
+    padding: 12px;
+    /* line-height: 1.15; */
 }
+
+.region-selector > .region-list > .region > i {
+    margin-left: 12px;
+    color: var(--main-color-2);
+}
+
+.region-selector > .region-list > .region:hover {
+    background-color: rgb(236, 236, 236);
+}
+
 
 .region-selector > #choosen-region {
 	/* background-color: teal; */
@@ -348,16 +403,12 @@ header {
 	padding-left: 12px;
 }
 
-.region-selector > .region-list > .region:hover {
-    background-color: rgb(229, 217, 111);
-}
-
 .region-select-container > i {
 	margin: 0px 8px;
 }
 
 
-.search-bar > .search-btn {
+.search-wrapper > .search-btn {
     background: linear-gradient(90deg, var(--main-color-1), var(--main-color-2));
     margin: 3px;
     padding: 4px 24px;
@@ -369,7 +420,7 @@ header {
     border-radius: 2px;
 }
 
-.search-bar > .search-btn:hover {
+.search-wrapper > .search-btn:hover {
     background: linear-gradient(90deg, var(--main-color-1-chill), var(--main-color-2-chill));
 }
 
