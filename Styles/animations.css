@@ -1,35 +1,35 @@
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
 }
 
 @keyframes grow {
-    from {
-        transform: scale(var(--growFrom));
-    }
-    to {
-        transform: scale(var(--growTo));
-    }
+	from {
+		transform: scale(var(--growFrom));
+	}
+	to {
+		transform: scale(var(--growTo));
+	}
 }
 
 @keyframes shrink {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(0);
-    }
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0);
+	}
 }
