@@ -278,7 +278,7 @@ header {
 
 
 .search-section {
-    /* background-color: #27b445; */
+    background-color: #27b445;
     flex: auto;
     display: flex;
     flex-direction: column;
